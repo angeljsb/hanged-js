@@ -19,6 +19,7 @@ Atemp.prototype = {
     return arr.join("");
   },
   try: function (letter) {
+    if (!this.isAlive() || this.isComplete()) return;
     let lower = letter.toLowerCase();
     if (this.formated.includes(lower)) {
       this.formated = this.formated.replaceAll(lower, FOUND_CHAR);
