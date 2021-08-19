@@ -11,7 +11,7 @@ const createLetter = function (l) {
 
 const createImg = (name) => {
   const img = document.createElement("img");
-  img.src = `src/image/${name}.svg`;
+  img.src = `public/image/${name}.svg`;
   img.alt = name;
   img.className = "hanged-bg__image hanged-bg__image--person";
   return img;
@@ -88,15 +88,15 @@ Hanged.prototype = {
     this.element.innerHTML = `
       <div class="hanged-view">
       <div class="hanged-view__lives">
-      <img class="lives__icon" draggable="false" src="src/image/favorite_red.svg" alt="lives"></img>
+      <img class="lives__icon" draggable="false" src="public/image/favorite_red.svg" alt="lives"></img>
       <span class="lives__mark">3</span>
       </div>
       <div class="hanged-view__word-view"></div>
       <div class="hanged-view__last-letter"></div>
       </div>
       <div class="hanged-bg">
-      <img class="hanged-bg__image hanged-bg__image--tree" src="src/image/fondo.svg" />
-      <img class="hanged-bg__image hanged-bg__image--person" src="src/image/person-3.svg" />
+      <img class="hanged-bg__image hanged-bg__image--tree" src="public/image/fondo.svg" />
+      <img class="hanged-bg__image hanged-bg__image--person" src="public/image/person-3.svg" />
       </div> 
     `;
     this.insertWord(this.atemp.showedWord());
