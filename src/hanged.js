@@ -26,22 +26,10 @@ const person = {
 };
 
 const Hanged = function () {
-  this.atemp = new Atemp(randomWord());
-
   this.element = document.createElement("div");
   this.element.classList.add("hanged");
-  this.element.innerHTML = `
-  <div class="hanged-view">
-  <div class="hanged-view__lives"></div>
-  <div class="hanged-view__word-view"></div>
-  <div class="hanged-view__last-letter"></div>
-  </div>
-  <div class="hanged-bg">
-  <img class="hanged-bg__image hanged-bg__image--tree" src="src/image/fondo.svg" >
-  <img class="hanged-bg__image hanged-bg__image--person" src="src/image/person-3.svg" >
-  </div>
-  `;
-  this.insertWord(this.atemp.showedWord());
+
+  this.reset();
 
   this.loseView = document.createElement("div");
   this.loseView.classList.add("hanged-finish");
@@ -99,7 +87,10 @@ Hanged.prototype = {
     this.atemp = new Atemp(randomWord());
     this.element.innerHTML = `
       <div class="hanged-view">
-      <div class="hanged-view__lives"></div>
+      <div class="hanged-view__lives">
+      <img class="lives__icon" draggable="false" src="src/image/favorite_red.svg" alt="lives"></img>
+      <span class="lives__mark">3</span>
+      </div>
       <div class="hanged-view__word-view"></div>
       <div class="hanged-view__last-letter"></div>
       </div>
@@ -118,7 +109,7 @@ Hanged.prototype = {
     return this.element.querySelector(".hanged-bg__image--" + name);
   },
   set lives(lives) {
-    this.getViewElement("lives").innerHTML = `${lives} vidas`;
+    this.getViewElement("lives .lives__mark").innerHTML = lives;
     this.changePerson(lives);
   },
   set wordView(word) {
